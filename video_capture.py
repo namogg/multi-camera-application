@@ -21,27 +21,24 @@ class VideoCapture:
 
     
         self.vid = cv2.VideoCapture(video_source)
-        if not self.vid.isOpened():
-            raise ValueError("[MyVideoCapture] Unable to open video source", video_source)
+        if self.vid.isOpened():
+            if not self.width:
+                self.width = int(self.vid.get(cv2.CAP_PROP_FRAME_WIDTH))    # convert float to int
+            if not self.height:
+                self.height = int(self.vid.get(cv2.CAP_PROP_FRAME_HEIGHT))  # convert float to int
+            if not self.fps:
+                self.fps = int(self.vid.get(cv2.CAP_PROP_FPS))              # convert float to int
 
-        
-        if not self.width:
-            self.width = int(self.vid.get(cv2.CAP_PROP_FRAME_WIDTH))    # convert float to int
-        if not self.height:
-            self.height = int(self.vid.get(cv2.CAP_PROP_FRAME_HEIGHT))  # convert float to int
-        if not self.fps:
-            self.fps = int(self.vid.get(cv2.CAP_PROP_FPS))              # convert float to int
+            self.ret = False
+            self.frame = None
 
-        self.ret = False
-        self.frame = None
+            self.convert_color = cv2.COLOR_BGR2RGB
 
-        self.convert_color = cv2.COLOR_BGR2RGB
+            self.convert_pillow = True
 
-        self.convert_pillow = True
-
-        self.running = True
-        self.thread = threading.Thread(target=self.process)
-        self.thread.start()
+            self.running = True
+            self.thread = threading.Thread(target=self.process)
+            self.thread.start()
     
     def process(self):
         """TODO: add docstring"""

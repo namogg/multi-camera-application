@@ -21,12 +21,9 @@ class MulticamerasApp(ctk.CTk):
         self.create_theme()
         self.resizable(True, True)
 
-        
         self.main = MainFrame(self,relx=(1-main_width), relwidth = main_width, max_columns= max_columns, max_row = max_row,sources=sources)
         self.setting_bar = SettingBar(self,relx = 0,relwidth = (1-main_width))
         
-
- 
         self.mainloop()
 
     def create_theme(self): 
@@ -35,6 +32,8 @@ class MulticamerasApp(ctk.CTk):
 
 
 if __name__ == "__main__":
+
+    # Thay đổi sources để chạy: (Camera id, IP, source)
     sources = [   
         (
             "Camera 1",
