@@ -9,4 +9,4 @@ An UI for multicamera viewing with python
 - config.py: Config files
 
 ## Layout
-![Layout](https://github.com/namogg/multicamera-application/images/screenshot.png)
+![Layout](https://github.com/namogg/multicamera-application/blob/main/images/layout.png)
