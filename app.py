@@ -21,15 +21,12 @@ class MulticamerasApp(ctk.CTk):
         self.create_theme()
         self.resizable(True, True)
 
-        self.setting_bar = SettingBar(self,relx = 0,relwidth = (1-main_width))
-        self.main = MainFrame(self,relx=(1-main_width), relwidth = main_width, max_columns= max_columns, max_row = max_row)
         
-        for i, source in enumerate(sources):
-            row = i // max_columns
-            col = i % max_columns
-            self.main.add_cam(source[2],source[1], source[0],row , col)
-        self.num_cams = i
-        #run application
+        self.main = MainFrame(self,relx=(1-main_width), relwidth = main_width, max_columns= max_columns, max_row = max_row,sources=sources)
+        self.setting_bar = SettingBar(self,relx = 0,relwidth = (1-main_width))
+        
+
+ 
         self.mainloop()
 
     def create_theme(self): 
@@ -64,11 +61,7 @@ if __name__ == "__main__":
             "0,0,0,0",
             "data/yt5s.io-London Walk from Oxford Street to Carnaby Street.mp4",
         ),
-                (
-            "Camera 6",
-            "0,0,0,0",
-            "data/yt5s.io-London Walk from Oxford Street to Carnaby Street.mp4",
-        ),
+
     ]
 
     MulticamerasApp(sources = sources, width =APP_WIDTH, height = APP_HEIGHT)
