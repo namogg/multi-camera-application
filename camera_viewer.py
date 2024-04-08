@@ -210,7 +210,7 @@ class InputCameraWindow(tk.Toplevel):
         ip = self.input_ip.get()
         status =  self.parent.add_cam(source = source, camera_id = camera_id, ip = ip)
         if status:
-            messagebox.showinfo(f"Added camera", "Camera with {source} was added")
+            messagebox.showinfo("Added camera",f"Camera with {source} was added")
             self.destroy()
 
         
