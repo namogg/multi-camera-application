@@ -1,5 +1,5 @@
 # Multi-camera-application
-An UI for multicamera viewing with python
+An UI for multicamera viewing with python tkinter
 
 ## Components
 - app.py: main file

@@ -13,7 +13,7 @@ class SettingBar(ttk.Frame):
 
         add_cam_button = ttk.Button(self, text = "Add Camera", command  = parent.main.add_cam_window)
         stop_button = ttk.Button(self, text = "Stop", command  = parent.main.stop_playing)
-        show_info_button = ttk.Checkbutton(self, text = "Show camera info", command = parent.main.show_cameras_information)
+        show_info_button = ttk.Checkbutton(self, text = "Camera info" ,command = parent.main.show_cameras_information)
         
         label.pack(fill = "both",padx = 2)
         add_cam_button.pack(fill = "both",padx = 2)

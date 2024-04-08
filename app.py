@@ -1,6 +1,7 @@
 import tkinter as tk
 from video_capture import VideoCapture
 import tkinter.ttk as ttk 
+from tkinter import font
 import customtkinter as ctk 
 from camera_viewer import MainFrame
 from tkinter.ttk import *
@@ -27,8 +28,9 @@ class MulticamerasApp(ctk.CTk):
         self.mainloop()
 
     def create_theme(self): 
-        s = ttk.Style()
-        s.theme_use('clam')
+        self.tk.call("source", "Azure-ttk-theme/azure.tcl")
+        self.tk.call("set_theme", "dark")
+
 
 
 if __name__ == "__main__":
